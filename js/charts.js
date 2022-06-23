@@ -110,14 +110,14 @@ function buildCharts(sample) {
 
     // 11. Create the trace for the bubble chart.
     var trace1 = { 
-      x: sorted_samples.map(s => s.otu_id),
-      y: sorted_samples.map(s => s.sample_value),
+      x: otu_ids,
+      y: sample_values,
       mode: 'markers',
       marker: {
-        size: sorted_samples.map(s => s.sample_value),
-        color: sorted_samples.map(s => s.otu_id)
+        size: sample_values,
+        color: otu_ids
       },
-      text: sorted_samples.map(s => s.otu_label)
+      text: otu_labels
     }
     var bubbleData = [trace1];
 
@@ -127,7 +127,7 @@ function buildCharts(sample) {
       xaxis: {title: "OTU ID" },
       showlegend: false,
       height: 600,
-      width: 600
+      width: 1200
     };   
 
     // 13. Use Plotly to plot the data with the layout.
